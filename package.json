@@ -1,0 +1,22 @@
+{
+  "name": "software-factory",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "new-app": "tsx src/cli.ts new-app",
+    "upgrade": "tsx src/cli.ts upgrade",
+    "smoke": "tsx src/cli.ts smoke",
+    "test": "vitest run",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "eslint": "^9.39.2",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.0",
+    "vitest": "^3.2.4"
+  },
+  "packageManager": "pnpm@11.13.1"
+}

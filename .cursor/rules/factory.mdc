@@ -1,0 +1,10 @@
+---
+description: Factory language and safety
+alwaysApply: true
+---
+
+# software-factory conventions
+
+- Chat in English or French. Produce English artifacts only.
+- Dry-run before creating GitHub, Supabase, Vercel, or OVH resources.
+- Do not enable Supabase Pro automatically. Do not enable Vercel preview deployments.
