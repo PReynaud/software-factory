@@ -26,13 +26,13 @@ State lives in gitignored `.factory-state/{slug}.json` (IDs and URLs only, never
 
 ## Steps (inspect-before-create)
 
-1. **Slug + folder** — `C:\Users\pierr\Projects\{slug}`.
+1. **Slug + folder** — `C:\Users\pierr\Documents\Projects\{slug}`.
 2. **GitHub (public)**
    - `gh repo create {slug} --template PReynaud/nuxt-app-template --public --clone`
    - Enable secret scanning + push protection.
    - Ruleset on `main`: PRs required, required checks from `.github/workflows/ci.yml`.
 3. **Customize** — replace tokens in `.factory/managed-files.json`. If `--no-pwa`, delete the PWA file list and drop `@vite-pwa/nuxt` from `nuxt.config.ts` / `package.json`. Write `.factory-version` from the template tag.
-4. `pnpm install` in the app. Install latest stable BMAD + skills, then write `skills-lock.json` / `.factory/toolchain.json`. Run the app CI locally (`lint`, `typecheck`, `test:unit`). Stop if it fails.
+4. `pnpm install` in the app. Install latest stable BMAD + skills, then write `skills-lock.json` / `.factory/toolchain.json`. Run the app CI locally (`lint`, `typecheck`, `test:unit`, `build:vercel`). Stop if it fails. `app/app.config.ts` must import `defineAppConfig` from `#imports` (auto-imports are off; omitting it fails prerender).
 5. **Supabase** (human confirm before anything billable)
    - List orgs; user picks one (default `Preynaud` / `cnvbvgdjhlhbgalosugb`).
    - Count **active** projects. Free plan allows 2. If full, offer to pause an existing project. Never enable Pro automatically.

@@ -47,7 +47,7 @@ function factoryRoot(): string {
 }
 
 function projectsRoot(): string {
-  return process.env.PROJECTS_ROOT || join(homedir(), 'Projects');
+  return process.env.PROJECTS_ROOT || join(homedir(), 'Documents', 'Projects');
 }
 
 async function runSmoke(): Promise<void> {

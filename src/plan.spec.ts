@@ -17,7 +17,7 @@ describe('planNewApp dry-run', () => {
       resume: false,
       noPwa: false,
       deploy: 'vercel',
-      projectsRoot: 'C:\\Users\\pierr\\Projects',
+      projectsRoot: 'C:\\Users\\pierr\\Documents\\Projects',
       zone: 'pierre-reynaud.fr',
       templateRepo: 'PReynaud/nuxt-app-template'
     }, null);
