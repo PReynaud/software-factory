@@ -8,6 +8,8 @@ See [deploy/vercel/README.md](../deploy/vercel/README.md).
 
 Bootstrap: GitHub public repo → Vercel project on `main` only → `vercel domains add {slug}.pierre-reynaud.fr` → OVH CNAME `{slug}` → `cname.vercel-dns.com`.
 
+Schema: template workflow `.github/workflows/deploy-migrations.yml` runs `supabase db push --db-url` on `main` when `supabase/migrations/**` changes. Factory sets repo secret `SUPABASE_DB_URL` (direct Postgres URI) during `factory-new-app`. One secret; no Supabase access token required for that job.
+
 Hobby is free for personal use. Commercial use requires Pro.
 
 ## Cloudflare Workers (stub)

@@ -39,6 +39,13 @@ State lives in gitignored `.factory-state/{slug}.json` (IDs and URLs only, never
    - `confirm_cost` then `create_project` in `eu-west-3`. Wait until `ACTIVE_HEALTHY`.
    - Fetch URL + publishable key. Write `.env` locally and Vercel env. Never print secrets.
    - Apply `supabase/migrations`, generate types.
+   - **Auto-deploy migrations** (template ships `.github/workflows/deploy-migrations.yml`):
+     1. Ask the user for the project database password (Dashboard → Project Settings → Database). MCP cannot read it. Never print it, never write it to `.factory-state`.
+     2. Build the direct Postgres URI (URL-encode the password):
+        `postgresql://postgres:{password}@db.{project_ref}.supabase.co:5432/postgres`
+     3. Set the repo secret (stdin, do not echo):
+        `gh secret set SUPABASE_DB_URL --repo {owner}/{slug}`
+     4. Optionally run `workflow_dispatch` once to confirm a no-op push.
    - Auth URLs: `http://localhost:3000/confirm` and `https://{slug}.pierre-reynaud.fr/confirm`. No preview URLs.
    - Run advisors before marking the step done.
 6. **Vercel**

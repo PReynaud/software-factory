@@ -37,6 +37,7 @@ export function planNewApp(options: NewAppOptions, state: FactoryState | null): 
     `Secret scanning + push protection + main ruleset (required checks)`,
     options.noPwa ? 'Remove PWA files after clone' : 'Keep PWA files',
     `Supabase: dedicated project in eu-west-3 after quota check + human confirm`,
+    `GitHub secret SUPABASE_DB_URL + deploy-migrations workflow (db push on main)`,
     `Deploy adapter: ${options.deploy}`,
     options.deploy === 'vercel'
       ? `Vercel: link repo, set env, disable preview deployments, domains add ${fqdn}`

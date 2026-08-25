@@ -24,6 +24,7 @@ describe('planNewApp dry-run', () => {
 
     expect(lines.some((line) => line.includes('public repo'))).toBe(true);
     expect(lines.some((line) => line.includes('eu-west-3'))).toBe(true);
+    expect(lines.some((line) => line.includes('SUPABASE_DB_URL'))).toBe(true);
     expect(lines.some((line) => line.includes('vercel-dns'))).toBe(true);
     expect(lines.some((line) => line.includes('foo.pierre-reynaud.fr'))).toBe(true);
   });
