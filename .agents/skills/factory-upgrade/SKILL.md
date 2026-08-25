@@ -16,9 +16,10 @@ pnpm upgrade -- --dry-run --name Foo
 ## Steps
 
 1. Read `{app}/.factory-version` and the target `nuxt-app-template` SemVer tag.
-2. Diff only files listed in the template `.factory/managed-files.json` allowlist (CI, Cursor rules, BMAD customizations, MCP config, auth shell, fixtures).
+2. Diff only files listed in the template `.factory/managed-files.json` allowlist (CI, Cursor rules, BMAD customizations, MCP config, auth shell, fixtures). Includes `.github/workflows/deploy-migrations.yml` when present in the allowlist.
 3. Copy those files onto a new branch. Leave product files untouched.
 4. Open a PR with the changelog delta in English.
 5. Stop on conflicts and describe them in the PR body.
+6. If the PR adds `deploy-migrations.yml`, remind the user to set repo secret `SUPABASE_DB_URL` (direct Postgres URI) before merging — factory-new-app does this for new apps only.
 
 Renovate owns dependency updates. This skill owns structural sync.
